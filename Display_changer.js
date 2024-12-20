@@ -25,17 +25,16 @@ function CheckServices() {
 function handleSpacePress(event) {
   if (event.code === "Space" || event.key === " ") {
     event.preventDefault(); // Prevent default page scroll
+    let number = getRndInteger(0, movies.length);
+    while (hasService == false) {
+      if (checkServices(number) == false) {
        let number = getRndInteger(0, movies.length);
-  while (hasService == false) {
-    if (checkServices(number) == false) {
-       let number = getRndInteger(0, movies.length);
-    } else {
-      let hasService = true;
+      } else {
+        let hasService = true;
+      }  
     }
-  }
-  let video = movies[number].trailer;
-  iframe.src = video;
-}   
+    let video = movies[number].trailer;
+    iframe.src = video;  
   }
 }
 
