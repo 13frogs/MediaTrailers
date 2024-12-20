@@ -32,6 +32,7 @@ function NextVideo() {
     }
   }
   let video = movies[number].trailer;
-  return video;
+  const iframe = document.getElementById("youtubeFrame");
+  iframe.src = video;
 }
 
