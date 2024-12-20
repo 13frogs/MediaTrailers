@@ -19,11 +19,13 @@ function getRndInteger(min, max) {
 let hasService = false;
 
 function CheckServices() {
-  //checks if user has one of the designated services
+  return true;
 }
 
-function NextVideo() {
-  let number = getRndInteger(0, movies.length);
+function handleSpacePress(event) {
+  if (event.code === "Space" || event.key === " ") {
+    event.preventDefault(); // Prevent default page scroll
+       let number = getRndInteger(0, movies.length);
   while (hasService == false) {
     if (checkServices(number) == false) {
        let number = getRndInteger(0, movies.length);
@@ -32,7 +34,10 @@ function NextVideo() {
     }
   }
   let video = movies[number].trailer;
-  const iframe = document.getElementById("youtubeFrame");
   iframe.src = video;
+}   
+  }
 }
+
+document.getElementById("youtubeFrame").addEventListener("keydown", handleSpacePress);
 
